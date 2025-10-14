@@ -1,0 +1,104 @@
+/* Parri – styles.css */
+:root{
+  --bg:#f5f4f1;
+  --sand:#e7c789;
+  --sand-700:#caa65f;
+  --teal:#2aa39a;
+  --teal-700:#1f7d76;
+  --ink:#1d1d1d;
+  --muted:#5f6869;
+  --white:#ffffff;
+  --radius-lg:18px;
+  --radius-xl:22px;
+  --shadow:0 6px 16px rgba(0,0,0,.08);
+  --shadow-sm:0 2px 8px rgba(0,0,0,.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue","Noto Sans",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.appbar{
+  position:sticky; top:0; z-index:10;
+  background:linear-gradient(180deg,var(--sand),#e9cf9d);
+  box-shadow:var(--shadow-sm);
+  padding:10px 14px;
+}
+.appbar__inner{
+  max-width:680px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{display:flex; align-items:center; gap:10px}
+.brand__logo{display:block}
+.brand__divider{width:1px;height:22px;background:rgba(0,0,0,.15);display:inline-block;border-radius:1px}
+.brand__tagline{font-weight:700;font-size:.9rem;color:#315656;letter-spacing:.2px}
+
+.pill{
+  border:0; background:var(--white); color:#315656; font-weight:800;
+  padding:8px 14px; border-radius:999px; box-shadow:var(--shadow);
+}
+
+.container{max-width:680px;margin:0 auto;padding:18px 16px 32px}
+.h1{font-size:1.8rem; margin:8px 0 18px; font-weight:800; color:#314040}
+
+.stack{display:grid; gap:16px}
+
+.action{
+  display:flex; align-items:center; gap:14px; justify-content:center;
+  padding:18px 16px; border-radius:var(--radius-xl);
+  font-size:1.2rem; font-weight:800; border:none; cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:transform .06s ease, filter .1s ease, box-shadow .1s ease;
+}
+.action:active{transform:translateY(1px)}
+.action:focus-visible{outline:3px solid #0a6b64; outline-offset:2px}
+
+.action--primary{background:var(--teal); color:var(--white)}
+.action--primary:hover{filter:brightness(.98)}
+.action__icon{font-size:1.4rem}
+
+.card{
+  position:relative;
+  display:flex; align-items:center; gap:14px;
+  padding:18px 16px; border-radius:var(--radius-xl);
+  background:var(--white); box-shadow:var(--shadow);
+  text-decoration:none; color:inherit; cursor:pointer;
+  transition:transform .06s ease, box-shadow .1s ease;
+}
+.card:hover{box-shadow:0 10px 18px rgba(0,0,0,.1)}
+.card:active{transform:translateY(1px)}
+.card:focus-visible{outline:3px solid #0a6b64; outline-offset:2px}
+.card--sand{background:var(--sand)}
+.card__icon{font-size:1.35rem}
+.card__text{font-weight:700; font-size:1.05rem}
+
+.badge{
+  position:absolute; right:16px; top:50%; transform:translateY(-50%);
+  min-width:28px; height:28px; padding:0 8px;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--teal); color:var(--white); border-radius:999px;
+  font-weight:800;
+  box-shadow:var(--shadow-sm);
+}
+
+.toast{
+  position:fixed; inset:auto 0 18px 0; display:flex; justify-content:center; pointer-events:none;
+}
+.toast > span{
+  background:var(--ink); color:var(--white); padding:12px 16px; border-radius:14px;
+  font-weight:700; box-shadow:var(--shadow); letter-spacing:.2px;
+}
+[hidden]{display:none !important}
+
+/* Large devices */
+@media (min-width:768px){
+  .h1{font-size:2rem}
+  .action{font-size:1.25rem}
+}

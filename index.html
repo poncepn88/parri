@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Parri – Tu mesa</title>
+  <meta name="description" content="Parri: Llama al mozo, mira la carta, paga tu cuenta. Rápido y simple." />
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="theme-color" content="#E7C789">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="appbar" role="banner">
+    <div class="appbar__inner">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Parri" class="brand__logo" width="116" height="36">
+        <span class="brand__divider" aria-hidden="true"></span>
+        <span class="brand__tagline">QR • Carta • Pago</span>
+      </div>
+      <button id="mesaPill" class="pill" aria-label="Número de mesa">Mesa <span id="mesaNum">4</span></button>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <h1 class="h1">¿Qué necesitas?</h1>
+
+    <section class="stack">
+      <button class="action action--primary" id="btnWaiter">
+        <span class="action__icon" aria-hidden="true">🔔</span>
+        <span class="action__text">Llamar Mozo</span>
+      </button>
+
+      <button class="card card--sand" id="btnPay">
+        <span class="card__icon" aria-hidden="true">💳</span>
+        <span class="card__text">Pagar Cuenta</span>
+      </button>
+
+      <a class="card" id="btnMenu" href="#" role="button">
+        <span class="card__icon" aria-hidden="true">📖</span>
+        <span class="card__text">Ver Carta</span>
+      </a>
+
+      <div class="card" id="btnOrder" role="button" tabindex="0" aria-pressed="false">
+        <span class="card__icon" aria-hidden="true">🛒</span>
+        <span class="card__text">Mi Pedido</span>
+        <span class="badge" id="orderBadge" aria-label="Cantidad en pedido">2</span>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
