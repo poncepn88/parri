@@ -36,7 +36,11 @@ body{
   display:flex; align-items:center; justify-content:space-between;
 }
 .brand{display:flex; align-items:center; gap:10px}
-.brand__logo{display:block}
+.brand__logo{
+  height:clamp(28px, 6vw, 36px);
+  width:auto;
+  max-width:60vw;
+}
 .brand__divider{width:1px;height:22px;background:rgba(0,0,0,.15);display:inline-block;border-radius:1px}
 .brand__tagline{font-weight:700;font-size:.9rem;color:#315656;letter-spacing:.2px}
 
@@ -101,4 +105,8 @@ body{
 @media (min-width:768px){
   .h1{font-size:2rem}
   .action{font-size:1.25rem}
+}
+
+@media (max-width:380px){
+  .brand__tagline{ display:none; }
 }
