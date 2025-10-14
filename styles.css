@@ -1,7 +1,7 @@
 /* Parri – styles.css */
 :root{
   --bg:#f5f4f1;
-  --sand:#e7c789;
+  --sand:#FFCD4C;
   --sand-700:#caa65f;
   --teal:#2aa39a;
   --teal-700:#1f7d76;
@@ -27,7 +27,7 @@ body{
 
 .appbar{
   position:sticky; top:0; z-index:10;
-  background:linear-gradient(180deg,var(--sand),#e9cf9d);
+  background:#FFCD4C;
   box-shadow:var(--shadow-sm);
   padding:10px 14px;
 }
