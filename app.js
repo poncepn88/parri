@@ -40,6 +40,16 @@
     if(navigator.vibrate){ navigator.vibrate(60); }
   });
 
+  // Botón "Pedir Besito de Pao"
+  const kissBtn = document.querySelector('#btnKiss');
+  if (kissBtn) {
+    kissBtn.addEventListener('click', () => {
+      showToast('Un besito para vos Pellepipi 🐦‍⬛💝');
+      if (navigator.vibrate) navigator.vibrate([40, 40, 40]);
+    });
+  }
+
+
   // Pagar cuenta
   qs('#btnPay').addEventListener('click', () => {
     showToast('Abriendo flujo de pago…');
