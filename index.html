@@ -18,7 +18,6 @@
       <div class="brand">
         <img src="assets/logo-gradient.png" alt="Parri" class="brand__logo">
         <span class="brand__divider" aria-hidden="true"></span>
-        <span class="brand__tagline">QR • Carta • Pago</span>
       </div>
       <button id="mesaPill" class="pill" aria-label="Número de mesa">Mesa <span id="mesaNum">4</span></button>
     </div>
@@ -33,9 +32,16 @@
         <span class="action__text">Llamar Mozo</span>
       </button>
 
-      <button class="action action--gradient" id="btnKiss">
-        <span class="action__icon" aria-hidden="true">💕</span>
-        <span class="action__text">Pedir Besito de Pao</span>
+      <!-- Pedir Besito (naranja) -->
+      <button class="action action--orange" id="btnKiss">
+        <span class="action__icon" aria-hidden="true">💋</span>
+        <span class="action__text">Pedir Besito</span>
+      </button>
+
+      <!-- Pedir Abrazo (naranja) -->
+      <button class="action action--orange" id="btnHug">
+        <span class="action__icon" aria-hidden="true">🤗</span>
+        <span class="action__text">Pedir Abrazo</span>
       </button>
 
       <button class="card card--accent" id="btnPay">
@@ -55,6 +61,15 @@
       </div>
     </section>
   </main>
+
+  <!-- Modal de Abrazo -->
+  <div id="modal" class="modal" aria-hidden="true" hidden>
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <img src="abrazoparri.jpg" alt="Abrazo Parri" class="modal__img">
+      <button id="modalClose" class="modal__close" aria-label="Cerrar">✕</button>
+    </div>
+  </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
     <span id="toastMsg"></span>

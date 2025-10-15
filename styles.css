@@ -1,4 +1,4 @@
-/* Parri – styles.css (dark theme aligned to logo) */
+/* Parri – v3 styles (dark + logo aligned) */
 :root{
   --bg:#0D0F10;
   --surface:#14181A;
@@ -9,9 +9,8 @@
   --teal:#005050;
   --teal-2:#104040;
   --teal-3:#004040;
-  --orange:#E09040;
+  --orange:#E09040;  /* naranja del logo */
   --orange-2:#E0A050;
-  --orange-3:#E0B060;
 
   --radius-xl:22px;
   --shadow:0 8px 24px rgba(0,0,0,.35);
@@ -31,7 +30,7 @@ body{
 
 .appbar{
   position:sticky; top:0; z-index:10;
-  background:#000; /* matches logo background */
+  background:#000;
   box-shadow:var(--shadow-sm);
   padding:10px 14px;
 }
@@ -41,13 +40,11 @@ body{
 }
 .brand{display:flex; align-items:center; gap:10px; min-width:0}
 .brand__logo{
-  height:clamp(28px, 6vw, 40px);
+  height:clamp(32px, 7vw, 48px); /* un poco más grande */
   width:auto;
   max-width:60vw;
 }
 .brand__divider{width:1px;height:22px;background:rgba(255,255,255,.12);border-radius:1px}
-.brand__tagline{font-weight:700;font-size:.9rem;color:var(--muted);letter-spacing:.2px;white-space:nowrap}
-@media (max-width:380px){ .brand__tagline{ display:none; } }
 
 .pill{
   border:1px solid rgba(255,255,255,.12);
@@ -76,9 +73,10 @@ body{
 }
 .action--primary:hover{filter:brightness(1.03)}
 
-.action--gradient{
-  background:linear-gradient(135deg, var(--orange-3), var(--teal));
-  color:var(--white);
+/* naranja para Besito y Abrazo */
+.action--orange{
+  background:linear-gradient(135deg, var(--orange-2), var(--orange));
+  color:#1b1208;
 }
 
 .card{
@@ -115,6 +113,20 @@ body{
   font-weight:700; box-shadow:var(--shadow); letter-spacing:.2px; border:1px solid rgba(255,255,255,.08);
 }
 [hidden]{display:none !important}
+
+/* Modal */
+.modal[aria-hidden="true"]{display:none}
+.modal{position:fixed; inset:0; z-index:50; display:block}
+.modal__backdrop{position:absolute; inset:0; background:rgba(0,0,0,.6)}
+.modal__dialog{
+  position:relative; margin:6vh auto; width:min(92vw, 720px); background:#000;
+  border-radius:18px; box-shadow:var(--shadow); overflow:hidden; border:1px solid rgba(255,255,255,.12);
+}
+.modal__img{display:block; width:100%; height:auto}
+.modal__close{
+  position:absolute; top:10px; right:10px; border:none; width:36px; height:36px; border-radius:999px;
+  background:rgba(0,0,0,.6); color:#fff; font-size:18px; cursor:pointer;
+}
 
 /* Large devices */
 @media (min-width:768px){

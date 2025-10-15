@@ -1,4 +1,4 @@
-/* Parri – app.js */
+/* Parri – v3 app.js */
 (function(){
   const qs = (s, el=document) => el.querySelector(s);
 
@@ -37,12 +37,29 @@
     if(navigator.vibrate){ navigator.vibrate(60); }
   });
 
-  const kissBtn = qs('#btnKiss');
-  kissBtn.addEventListener('click', () => {
-    showToast('Pedido de besito enviado a Pao 💕');
+  // Besito → Toast
+  qs('#btnKiss').addEventListener('click', () => {
+    showToast('Pedido de besito enviado 💋');
     if(navigator.vibrate){ navigator.vibrate([40,40,40]); }
   });
 
+  // Abrazo → Modal con imagen
+  const modal = qs('#modal');
+  const closeModal = ()=>{
+    modal.setAttribute('aria-hidden','true');
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  };
+  qs('#btnHug').addEventListener('click', () => {
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  });
+  qs('#modalBackdrop').addEventListener('click', closeModal);
+  qs('#modalClose').addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.getAttribute('aria-hidden')==='false'){ closeModal(); } });
+
+  // Otros
   qs('#btnPay').addEventListener('click', () => showToast('Abriendo flujo de pago…'));
   qs('#btnMenu').addEventListener('click', (e) => { e.preventDefault(); showToast('Mostrando carta (demo)…'); });
 
