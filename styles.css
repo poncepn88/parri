@@ -6,9 +6,9 @@
   --muted:#5f6869;
   --white:#ffffff;
 
-  --teal:#005050;
+  --teal:#2AA39A;
   --teal-2:#104040;
-  --teal-3:#004040;
+  --teal-3:#1F7D76;
   --orange:#E09040;  /* naranja del logo */
   --orange-2:#E0A050;
 
@@ -76,7 +76,7 @@ body{
 /* naranja para Besito y Abrazo */
 .action--orange{
   background:linear-gradient(135deg, var(--orange-2), var(--orange));
-  color:#1b1208;
+  color:#FFFFFF;
 }
 
 .card{
