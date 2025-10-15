@@ -27,7 +27,7 @@ body{
 
 .appbar{
   position:sticky; top:0; z-index:10;
-  background:#FFCD4C;
+  background:#000000;
   box-shadow:var(--shadow-sm);
   padding:10px 14px;
 }
