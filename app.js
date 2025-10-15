@@ -2,16 +2,14 @@
 (function(){
   const qs = (s, el=document) => el.querySelector(s);
 
-  // Mesa: de ?mesa= o localStorage; fallback 4
+  // Mesa
   const mesaSpan = qs('#mesaNum');
-  const mesaPill = qs('#mesaPill');
   const params = new URLSearchParams(location.search);
-  const mesaFromQS = params.get('mesa');
-  const mesaStored = localStorage.getItem('parri:mesa');
-  const mesa = mesaFromQS || mesaStored || '4';
+  const mesa = params.get('mesa') || localStorage.getItem('parri:mesa') || '4';
   mesaSpan.textContent = mesa;
   localStorage.setItem('parri:mesa', mesa);
-  mesaPill.addEventListener('click', ()=>{
+
+  qs('#mesaPill').addEventListener('click', ()=>{
     const next = prompt('Cambiar número de mesa:', mesaSpan.textContent);
     if(next && /^[0-9A-Za-z-]+$/.test(next)){
       mesaSpan.textContent = next;
@@ -19,7 +17,7 @@
     }
   });
 
-  // Toast helper
+  // Toast
   const toast = qs('#toast');
   const toastMsg = qs('#toastMsg');
   function showToast(msg, ms=2200){
@@ -33,49 +31,27 @@
     }, ms);
   }
 
-  // Llamar mozo
+  // Acciones
   qs('#btnWaiter').addEventListener('click', () => {
-    // NOTE: Aquí harías fetch() a tu backend para notificar al panel.
     showToast(`Mozo llamado en Mesa ${mesaSpan.textContent} ✅`);
     if(navigator.vibrate){ navigator.vibrate(60); }
   });
 
-  // Botón "Pedir Besito de Pao"
-  const kissBtn = document.querySelector('#btnKiss');
-  if (kissBtn) {
-    kissBtn.addEventListener('click', () => {
-      showToast('Un besito para vos Pellepipi 🐦‍⬛💝');
-      if (navigator.vibrate) navigator.vibrate([40, 40, 40]);
-    });
-  }
-
-
-  // Pagar cuenta
-  qs('#btnPay').addEventListener('click', () => {
-    showToast('Abriendo flujo de pago…');
-    // Simular navegación futura
+  const kissBtn = qs('#btnKiss');
+  kissBtn.addEventListener('click', () => {
+    showToast('Pedido de besito enviado a Pao 💕');
+    if(navigator.vibrate){ navigator.vibrate([40,40,40]); }
   });
 
-  // Ver carta
-  qs('#btnMenu').addEventListener('click', (e) => {
-    e.preventDefault();
-    showToast('Mostrando carta (modo demo)…');
-  });
+  qs('#btnPay').addEventListener('click', () => showToast('Abriendo flujo de pago…'));
+  qs('#btnMenu').addEventListener('click', (e) => { e.preventDefault(); showToast('Mostrando carta (demo)…'); });
 
-  // Mi pedido: incrementar badge de ejemplo
   const badge = qs('#orderBadge');
   const orderCard = qs('#btnOrder');
   orderCard.addEventListener('click', () => {
-    const n = parseInt(badge.textContent || '0', 10) + 1;
+    const n = (parseInt(badge.textContent || '0',10) + 1);
     badge.textContent = n;
     showToast(`Agregado al pedido (${n})`);
   });
-  orderCard.addEventListener('keydown', (ev)=>{
-    if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); orderCard.click(); }
-  });
-
-  // PWA: registro opcional del SW (placeholder)
-  if('serviceWorker' in navigator){
-    // navigator.serviceWorker.register('sw.js').catch(()=>{});
-  }
+  orderCard.addEventListener('keydown', (ev)=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); orderCard.click(); } });
 })();

@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>parri</title>
-  <meta name="description" content="parri: Llama al mozo, mira la carta, paga tu cuenta" />
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="parri-favicon.png">  
+  <title>Parri – Tu mesa</title>
+  <meta name="description" content="Parri: Llama al mozo, mira la carta, paga tu cuenta. Rápido y simple." />
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <meta name="theme-color" content="#E7C789">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
@@ -17,9 +16,9 @@
   <header class="appbar" role="banner">
     <div class="appbar__inner">
       <div class="brand">
-        <img src="parrilogo-negro.jpg" alt="Parri" class="brand__logo">
+        <img src="assets/logo-gradient.png" alt="Parri" class="brand__logo">
         <span class="brand__divider" aria-hidden="true"></span>
-        <!--<span class="brand__tagline">QR • Carta • Pago</span>-->
+        <span class="brand__tagline">QR • Carta • Pago</span>
       </div>
       <button id="mesaPill" class="pill" aria-label="Número de mesa">Mesa <span id="mesaNum">4</span></button>
     </div>
@@ -34,12 +33,12 @@
         <span class="action__text">Llamar Mozo</span>
       </button>
 
-      <button class="action action--primary" id="btnKiss">
+      <button class="action action--gradient" id="btnKiss">
         <span class="action__icon" aria-hidden="true">💕</span>
-        <span class="action__text">Pedir Besito (System Admin use only) </span>
+        <span class="action__text">Pedir Besito de Pao</span>
       </button>
 
-      <button class="card card--sand" id="btnPay">
+      <button class="card card--accent" id="btnPay">
         <span class="card__icon" aria-hidden="true">💳</span>
         <span class="card__text">Pagar Cuenta</span>
       </button>
@@ -49,7 +48,7 @@
         <span class="card__text">Ver Carta</span>
       </a>
 
-      <div class="card" id="btnOrder" role="button" tabindex="0" aria-pressed="false">
+      <div class="card" id="btnOrder" role="button" tabindex="0">
         <span class="card__icon" aria-hidden="true">🛒</span>
         <span class="card__text">Mi Pedido</span>
         <span class="badge" id="orderBadge" aria-label="Cantidad en pedido">2</span>
