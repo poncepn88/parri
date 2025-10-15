@@ -1,4 +1,4 @@
-/* Parri – v3 app.js */
+/* Parri – v4 app.js */
 (function(){
   const qs = (s, el=document) => el.querySelector(s);
 
@@ -37,13 +37,13 @@
     if(navigator.vibrate){ navigator.vibrate(60); }
   });
 
-  // Besito → Toast
+  // Besito → Toast con texto + íconos solicitados
   qs('#btnKiss').addEventListener('click', () => {
-    showToast('Pedido de besito enviado 💋');
-    if(navigator.vibrate){ navigator.vibrate([40,40,40]); }
+    showToast('Un besito para Pellepipi 🐦‍⬛ 💝');
+    if(navigator.vibrate){ navigator.vibrate([30,30]); }
   });
 
-  // Abrazo → Modal con imagen
+  // Abrazo → Modal + vibración
   const modal = qs('#modal');
   const closeModal = ()=>{
     modal.setAttribute('aria-hidden','true');
@@ -51,6 +51,7 @@
     document.body.style.overflow = '';
   };
   qs('#btnHug').addEventListener('click', () => {
+    if(navigator.vibrate){ navigator.vibrate([40, 60, 40]); }
     modal.hidden = false;
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
